@@ -1,20 +1,38 @@
 import React from "react";
+import CartWidget from "./CartWidget";
 
-export default function NavBar(){
+
+export default function NavBar({nombre, arrayDeLinks}){
+
+    let verticalMode= false;
+    let navBarDirection = "";
+    let botonera = "";
+
+    if (verticalMode===true){
+        navBarDirection = "navBar-b";
+        botonera = "botonera-b"
+    }else{
+        navBarDirection = "navBar";
+        botonera = "botonera"
+    };
+
 
     return(
+    
         <>
-        <div className="navBar">
-        <div className="logo-nav">
-            <a href="https://">Ecommerce Nicolas</a>
+        <nav className={navBarDirection}>
+        <div  className="logo-nav">
+            <a href="https://">{nombre}</a>
         </div>
-        <ul className="botonera">
-            <li> <a href="https://">Home</a></li>
-            <li><a href="https://">Categories</a></li>
-            <li><a href="https://">On Sale</a></li>
-            <li><a href="https://">Shopping Cart</a></li>
+        <ul className={botonera}>
+
+        {arrayDeLinks.map(link => <li><a href="https//">{link}</a></li>)}
+        <li> <a href="https://"><CartWidget  /></a></li> 
         </ul>
-        </div>
+        </nav>
+
+        
+
     
         </>
     )
