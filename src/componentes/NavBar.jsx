@@ -1,5 +1,7 @@
-import React from "react";
+import React  from "react";
 import CartWidget from "./CartWidget";
+import LogoFinal from "../logo-final-3.png"
+
 
 
 export default function NavBar({nombre, arrayDeLinks}){
@@ -16,13 +18,14 @@ export default function NavBar({nombre, arrayDeLinks}){
         botonera = "botonera"
     };
 
+   
 
     return(
     
         <>
         <nav className={navBarDirection}>
         <div  className="logo-nav">
-            <a href="https://">{nombre}</a>
+            <a href="https://"><img src={LogoFinal} height={83.3} width={133} alt="logo" /></a>
         </div>
         <ul className={botonera}>
 

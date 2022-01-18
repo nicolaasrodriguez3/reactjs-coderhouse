@@ -1,0 +1,110 @@
+@import "_variables.scss";
+@import "_components.scss";
+
+html{
+    font-size: 16px;
+}
+
+
+body{
+  background-color: $background;
+}
+
+.greeting{
+  margin:auto;
+  font-size: 3rem;
+  color: rgb(22, 22, 22);
+  width: 100%;
+  text-align: center;
+  
+}
+.container{
+  width: 70%;
+  min-height: 100vh;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.navBar{
+  background-color: #F2E9DF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  height: max-content;
+  box-shadow: 5px 5px 3px grey;
+  
+}
+
+.botonera{
+  list-style: none;
+  display: inline;
+  margin-right: 40px;
+  
+  
+}
+
+.navBar-b{
+  background-color: rgb(46, 46, 46);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position:fixed;
+  width: 200px;
+  height: 100vh;
+}
+
+
+.botonera-b{
+  list-style: none;
+  margin-right: 40px;
+  margin-top: 20%;
+  
+  
+}
+
+.carrito{
+  color: rgb(36, 34, 34);
+}
+
+.carrito:hover{
+  color: rgb(157, 159, 160);
+}
+
+
+.botonera li{
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.botonera-b li{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.botonera-b a{
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.botonera a{
+  text-decoration: none;
+  color: rgb(36, 35, 35);
+  font-weight: 500;
+}
+
+.botonera a:hover{
+  color: rgb(157, 159, 160);
+}
+
+.logo-nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  
+}
