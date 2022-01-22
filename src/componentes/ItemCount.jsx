@@ -1,14 +1,21 @@
+import { getAllByPlaceholderText } from "@testing-library/react";
 import React , {useState} from "react";
+import ItemList from "./ItemList";
 
-export default function ItemCount (){
+export default function ItemCount ({ stock, nombre }){
 
     const [cantidadDeProductos, setCantidadDeProductos] =useState(1);
 
-    const stock = 10;
+    //const stock = 10;
+    const [stockDisponible, setStockDisponible] = useState({stock});
+
+
+    const [nombreDelProducto, setNombreDelProducto]= useState({nombre});
 
     const sumar = ()=>{
 
-        if(cantidadDeProductos < stock) setCantidadDeProductos(cantidadDeProductos+1)
+        (cantidadDeProductos < stockDisponible.stock) ?setCantidadDeProductos(cantidadDeProductos+1):
+        alert("Lo sentimos no contamos con unidades disponibles");
     };
 
     const restar = ()=>{
@@ -16,11 +23,11 @@ export default function ItemCount (){
     };
 
    const OnAdd= ()=>{
-       (cantidadDeProductos > 0) ? alert(`se ha agregado ${cantidadDeProductos} productos al carrito`)
+       (cantidadDeProductos > 0) ? alert(`se han agregado ${cantidadDeProductos} "${nombreDelProducto.nombre}" al carrito`)
        
-       : alert("Debes ingresar una cantidad validad de productos");
+       : alert(`Debes ingresar una cantidad validad de productos ` );
        
-       setCantidadDeProductos(0)
+       setCantidadDeProductos(1)
    }
    
     return(

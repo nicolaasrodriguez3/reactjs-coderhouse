@@ -4,7 +4,7 @@ import "./SCSS/App.scss"
 import NavBar from './componentes/NavBar';
 import ItemListContainer from './componentes/ItemListContainer';
 import "./logo-final-3.png";
-import ItemCount from './componentes/ItemCount';
+
 
 
 function App() {
@@ -13,10 +13,7 @@ function App() {
   return (
     <>
     <NavBar nombre={"Online Store"} arrayDeLinks={arrayDeLinks}/>
-    <div className='container'><ItemListContainer saludo={"Hola Bienvenido!"}/>
-    <ItemCount/>
-    
-    </div>
+   <ItemListContainer  saludo={" Bienvenido!"}></ItemListContainer>
     
     </>
   );
