@@ -6,10 +6,12 @@
     width: 320px;
     height: max-content;
     padding: 20px;
-    background-color: rgb(173, 173, 173);
+    background-color: rgb(255, 255, 255);
     margin: 10px;
-    border-radius: 5px;
+    border-radius: 2px;
     box-shadow: 5px 5px 10px grey;
+    outline: none;
+    
     
 
     .item-imagen{
@@ -43,13 +45,17 @@
 .itemList {
 
     
-    background-color: rgb(254, 255, 255);
+    background-color: rgb(245, 244, 244);
     min-height: max-content;
-    width: 90%;
+    width: 95%;
     margin: auto;
-    border-radius: 5px;
-    border: 1px solid black;
-    box-shadow: 5px 5px 20px black;
+    padding: 20px;
+    box-shadow: 5px 5px 20px rgb(117, 117, 117);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    outline: transparent;
     
     
     

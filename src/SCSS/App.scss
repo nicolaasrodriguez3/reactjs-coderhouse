@@ -1,6 +1,7 @@
 @import "_variables.scss";
 @import "_components.scss";
 @import "_item.scss";
+@import "_itemDetail.scss";
 
 html{
     font-size: 16px;
@@ -13,12 +14,15 @@ body{
 
 .greeting{
   margin:auto;
-  font-size: 3rem;
-  color: rgb(22, 22, 22);
+  font-size: 4rem;
+  color: $color1;
   width: 100%;
   text-align: center;
   margin-bottom: 3rem;
-  
+  margin-top: 3rem;
+  font-family: 'Monoton', cursive;
+  letter-spacing: 1px;
+  font-weight: lighter;
 }
 
 .itemListContainer{
