@@ -1,5 +1,6 @@
 import react, { useEffect, useState } from "react";
 import ItemCount from "./ItemCount";
+import { BrowserRouter, Switch, Route, useParams, Link} from "react-router-dom";
 
 export default function Item({ item }) {
   useEffect(() => {});
@@ -11,7 +12,7 @@ export default function Item({ item }) {
 
         <div className="item-imagen">Imagen del producto</div>
 
-        <button>Ver Detalle del producto</button>
+        <Link to={`/item/${item.id}`}><button>Ver Detalle del producto</button></Link>
 
         <div>Unidades Disponibles: {item.stock}</div>
 

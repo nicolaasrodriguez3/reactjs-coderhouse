@@ -1,7 +1,7 @@
 import react , {useEffect, useState} from "react";
 import ItemCount from "./ItemCount";
 import ItemDetailContainer from "./ItemDetailContainer";
-
+import { BrowserRouter, Switch, Route, useParams, Link} from "react-router-dom";
 
 export default function ItemDetail ({producto}){
 
@@ -10,6 +10,7 @@ export default function ItemDetail ({producto}){
 
     return(
         <>
+        { (producto.id)?
            <div className="itemDetail">
                <div className="product-category">{producto.categoria}</div>
                <div className="product-container">
@@ -25,6 +26,11 @@ export default function ItemDetail ({producto}){
             </div>
             </div>
            </div>
+
+           :
+
+           <>Ha ocurrido un Error ! </>
+           }
         </>
 
     )

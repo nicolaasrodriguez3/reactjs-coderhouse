@@ -1,14 +1,16 @@
-import react, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter, Switch, Route, useParams, Link} from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 
 export default function ItemDetailContainer() {
   const [producto, setProducto] = useState({});
   const [llegoLaPromesa, setLlegoLaPromesa] = useState(false);
+  const {itemId} =useParams();
 
   const productosEnStock = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(producto);
-    }, 3000);
+    }, 1000);
   });
 
   useEffect(() => {
@@ -68,7 +70,7 @@ export default function ItemDetailContainer() {
       },
     ];
 
-    setProducto(arrayDeProductos.filter((item) => item.id)[0]);
+    setProducto(arrayDeProductos.filter((item) => item.id===itemId));
 
     productosEnStock
       .then((res) => {
@@ -77,9 +79,9 @@ export default function ItemDetailContainer() {
       })
 
       .catch(() => {
-        alert("ha ocurrido un error");
+        alert("ERROR!");
       });
-  });
+  }, []);
 
   return (
     <>
@@ -89,8 +91,7 @@ export default function ItemDetailContainer() {
         </>
       ) : (
         <>
-          {" "}
-          <p className="pantalla-carga">cargando producto</p>
+        Cargando..
         </>
       )}
     </>

@@ -6,70 +6,93 @@ export default function ItemList(){
 
    
 
-    const [llegoLaPromesa, setLlegoLaPromesa] = useState(false);
+   const [llegoLaPromesa, setLlegoLaPromesa] = useState(false);
 
-   const [arrayDeItems, setArrayDeItems]=useState([
+   const [arrayDeItems, setArrayDeItems]=useState({});
+
+   const catalogo = [
     {
-        nombre : "Remera 1",
-        stock: 5,
-        id: '001',
+      nombre: "Remera Classic",
+      stock: 5,
+      precio: 3500,
+      id: "001",
+      categoria: "Remeras",
+      foto: "https://i.pinimg.com/564x/8d/44/b1/8d44b1e3d758a33af85ce77d39da4e53.jpg",
     },
 
     {
-        nombre : "Remera 2",
-        stock: 3,
-        id: '002',
+      nombre: "Remera Vintage",
+      stock: 3,
+      precio: 3500,
+      id: "002",
+      categoria: "Remeras",
+      foto: "https://i.pinimg.com/564x/97/b0/ac/97b0ac5c5e356621c06deb6ee720b618.jpg",
     },
 
     {
-        nombre : "Remera 4",
-        stock: 8,
-        id: '003',
-    },
-
-    
-    {
-        nombre : "Gorra 1",
-        stock: 9,
-        id: '004',
+      nombre: "Remera 4",
+      stock: 8,
+      precio: 3500,
+      id: "003",
+      categoria: "Remeras",
+      foto: "",
     },
 
     {
-        nombre : "Gorra 2",
-        stock: 16,
-        id: '005',
+      nombre: "Gorra 1",
+      stock: 9,
+      precio: 2800,
+      id: "004",
+      categoria: "Accesorios",
+      foto: "",
     },
 
     {
-        nombre : "Gorra 3",
-        stock: 11,
-        id: '006',
+      nombre: "Gorra 2",
+      stock: 16,
+      precio: 2800,
+      id: "005",
+      categoria: "Accesorios",
+      foto: "",
     },
 
-   ]);
+    {
+      nombre: "Gorra 3",
+      stock: 11,
+      id: "006",
+      precio: 2800,
+      categoria: "Accesorios",
+      foto: "",
+    },
+    ];
 
 
    const productosEnStock = new Promise((resolve,reject)=>{
 
+        
         setTimeout(()=>{
             resolve(arrayDeItems);
-        }, 3000)
+        }, 1000)
 
    });
    
     useEffect(()=>{
         
+        
+
         productosEnStock
-        .then (res =>{
+        .then ((res) =>{
+            
             setLlegoLaPromesa(true)
-            setArrayDeItems(res)
+            setArrayDeItems(res);
+            
         })
 
         .catch(()=>{
-            alert("ha ocurrido un error");
+            alert("ERROR!");
         });
     
-    });
+    }, []);
 
     return(
         <>
