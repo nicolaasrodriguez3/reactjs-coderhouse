@@ -19,7 +19,7 @@ function App() {
           <ItemListContainer saludo={"1970 STORE"}></ItemListContainer>
         </Route>
 
-        <Route  path="/item/:itemID">
+        <Route  path="/item/:itemId">
         <ItemDetailContainer />
         </Route>
 

@@ -8,9 +8,14 @@ export default function ItemList(){
 
    const [llegoLaPromesa, setLlegoLaPromesa] = useState(false);
 
-   const [arrayDeItems, setArrayDeItems]=useState({});
+   const [arrayDeItems, setArrayDeItems]=useState([]);
 
-   const catalogo = [
+  
+
+
+   const productosEnStock = new Promise((resolve,reject)=>{
+
+         const catalogo = [
     {
       nombre: "Remera Classic",
       stock: 5,
@@ -30,7 +35,7 @@ export default function ItemList(){
     },
 
     {
-      nombre: "Remera 4",
+      nombre: "Remera wiscosin",
       stock: 8,
       precio: 3500,
       id: "003",
@@ -39,7 +44,7 @@ export default function ItemList(){
     },
 
     {
-      nombre: "Gorra 1",
+      nombre: "Gorra Torrance",
       stock: 9,
       precio: 2800,
       id: "004",
@@ -48,7 +53,7 @@ export default function ItemList(){
     },
 
     {
-      nombre: "Gorra 2",
+      nombre: "Gorra Overlook",
       stock: 16,
       precio: 2800,
       id: "005",
@@ -57,7 +62,7 @@ export default function ItemList(){
     },
 
     {
-      nombre: "Gorra 3",
+      nombre: "Gorra Silver Creek",
       stock: 11,
       id: "006",
       precio: 2800,
@@ -65,13 +70,8 @@ export default function ItemList(){
       foto: "",
     },
     ];
-
-
-   const productosEnStock = new Promise((resolve,reject)=>{
-
-        
         setTimeout(()=>{
-            resolve(arrayDeItems);
+            resolve(catalogo);
         }, 1000)
 
    });
@@ -82,7 +82,7 @@ export default function ItemList(){
 
         productosEnStock
         .then ((res) =>{
-            
+          
             setLlegoLaPromesa(true)
             setArrayDeItems(res);
             

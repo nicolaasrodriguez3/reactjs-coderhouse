@@ -10,7 +10,7 @@ export default function Item({ item }) {
       <div className="item-card">
         <div className="item-name">{item.nombre}</div>
 
-        <div className="item-imagen">Imagen del producto</div>
+        <div className="item-imagen"></div>
 
         <Link to={`/item/${item.id}`}><button>Ver Detalle del producto</button></Link>
 

@@ -10,7 +10,7 @@ export default function ItemDetail ({producto}){
 
     return(
         <>
-        { (producto.id)?
+        { (producto)?
            <div className="itemDetail">
                <div className="product-category">{producto.categoria}</div>
                <div className="product-container">
