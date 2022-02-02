@@ -16,7 +16,7 @@ export default function Item({ item }) {
 
         <div>Unidades Disponibles: {item.stock}</div>
 
-        <ItemCount stock={item.stock} nombre={item.nombre}></ItemCount>
+        
 
       </div>
 

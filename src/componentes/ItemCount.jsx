@@ -1,34 +1,29 @@
 import { getAllByPlaceholderText } from "@testing-library/react";
 import React , {useState} from "react";
 import ItemList from "./ItemList";
+import ItemDetailContainer from "./ItemDetailContainer";
+import ItemDetail from "./ItemDetail";
 
-export default function ItemCount ({ stock, nombre }){
+
+export default function ItemCount ({ producto, OnAdd }){
 
     const [cantidadDeProductos, setCantidadDeProductos] =useState(1);
 
-    //const stock = 10;
-    const [stockDisponible, setStockDisponible] = useState({stock});
-
-
-    const [nombreDelProducto, setNombreDelProducto]= useState({nombre});
-
     const sumar = ()=>{
 
-        (cantidadDeProductos < stockDisponible.stock) ?setCantidadDeProductos(cantidadDeProductos+1):
+        
+        
+        (cantidadDeProductos < producto.stock) ?setCantidadDeProductos(cantidadDeProductos+1):
         alert("Lo sentimos no contamos con unidades disponibles");
+
+        console.log(cantidadDeProductos);
     };
 
     const restar = ()=>{
         if(cantidadDeProductos > 0 ) setCantidadDeProductos(cantidadDeProductos-1)
     };
 
-   const OnAdd= ()=>{
-       (cantidadDeProductos > 0) ? alert(`se han agregado ${cantidadDeProductos} "${nombreDelProducto.nombre}" al carrito`)
-       
-       : alert(`Debes ingresar una cantidad validad de productos ` );
-       
-       setCantidadDeProductos(1)
-   }
+  
    
     return(
         <>
@@ -40,7 +35,7 @@ export default function ItemCount ({ stock, nombre }){
             </div>
 
             <div className="addToCart" >
-                <button onClick={()=> OnAdd()}>
+                <button onClick={()=>OnAdd(cantidadDeProductos)}>
                     Agregar al carrito
                 </button>
             </div>

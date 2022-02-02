@@ -80,7 +80,7 @@ export default function ItemDetailContainer() {
       .then((res) => {
         setLlegoLaPromesa(true);
         setProducto(res.filter((item) => item.id==itemId)[0]);
-        console.log(res);
+        
       })
 
       .catch(() => {

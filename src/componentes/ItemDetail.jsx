@@ -6,7 +6,12 @@ import { BrowserRouter, Switch, Route, useParams, Link} from "react-router-dom";
 export default function ItemDetail ({producto}){
 
 
-    
+    const [mostrarItemCount, setMostrarItemCount]=useState(true);
+
+    const OnAdd= (cantidad)=>{
+        alert(`Se añadieron ${cantidad} de ${producto.nombre} al carrito`);
+        setMostrarItemCount(false);
+    }
 
     return(
         <>
@@ -20,8 +25,13 @@ export default function ItemDetail ({producto}){
                 
                 <div className="product-name">{producto.nombre}</div>
                 <div className="product-price"> $ {producto.precio}</div>
-                <div className="product-stock">unidades dispoibles: {producto.stock}</div>
-                <ItemCount/>
+                <div className="product-stock">unidades disponibles: {producto.stock}</div>
+                { (mostrarItemCount)?
+                    <ItemCount producto={producto} OnAdd={OnAdd}></ItemCount> 
+                    :
+                    <> Su pedido se encuentra en el el carrito</>
+                }
+                
 
             </div>
             </div>
