@@ -1,14 +1,19 @@
-import react , {useEffect, useState} from "react";
+import react , {useState, useContext} from "react";
 import ItemCount from "./ItemCount";
 import ItemDetailContainer from "./ItemDetailContainer";
 import { BrowserRouter, Switch, Route, useParams, Link} from "react-router-dom";
+import { contexto } from "./CartContext";
+
 
 export default function ItemDetail ({producto}){
 
+    const {addItem} = useContext(contexto);
 
     const [mostrarItemCount, setMostrarItemCount]=useState(true);
 
     const OnAdd= (cantidad)=>{
+        
+        addItem(producto, cantidad);
         alert(`Se añadieron ${cantidad} de ${producto.nombre} al carrito`);
         setMostrarItemCount(false);
     }
@@ -29,7 +34,7 @@ export default function ItemDetail ({producto}){
                 { (mostrarItemCount)?
                     <ItemCount producto={producto} OnAdd={OnAdd}></ItemCount> 
                     :
-                    <> Su pedido se encuentra en el el carrito</>
+                    <> Su pedido se encuentra en el el <Link to={'/cart'}>carrito</Link> </>
                 }
                 
 

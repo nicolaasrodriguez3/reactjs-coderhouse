@@ -6,6 +6,8 @@ import "./logo-final-3.png";
 import ItemDetailContainer from "./componentes/ItemDetailContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Categories from "./componentes/Categories";
+import CartContext from "./componentes/CartContext";
+import Cart from "./componentes/Cart";
 
 function App() {
   const arrayDeLinks = ["Home", "Categories", "On Sale"];
@@ -14,7 +16,7 @@ function App() {
       <NavBar nombre={"Online Store"} arrayDeLinks={arrayDeLinks} />
 
       <Switch>
-
+        <CartContext>
         <Route exact path="/">
           <ItemListContainer saludo={"1970 STORE"}></ItemListContainer>
         </Route>
@@ -29,10 +31,10 @@ function App() {
 
         
         <Route exact path="/cart">
-        
+        <Cart/>
         </Route>
 
-        
+        </CartContext>
       </Switch>
     </BrowserRouter>
   );
