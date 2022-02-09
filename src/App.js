@@ -13,10 +13,11 @@ function App() {
   const arrayDeLinks = ["Home", "Categories", "On Sale"];
   return (
     <BrowserRouter>
+     <CartContext>
       <NavBar nombre={"Online Store"} arrayDeLinks={arrayDeLinks} />
 
       <Switch>
-        <CartContext>
+        
         <Route exact path="/">
           <ItemListContainer saludo={"1970 STORE"}></ItemListContainer>
         </Route>
@@ -34,8 +35,9 @@ function App() {
         <Cart/>
         </Route>
 
-        </CartContext>
+        
       </Switch>
+      </CartContext>
     </BrowserRouter>
   );
 }

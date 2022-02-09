@@ -7,6 +7,7 @@ export default function Item({ item }) {
 
   return (
     <>
+    <Link className="linkToDetails" to={`/item/${item.id}`}>
       <div className="item-card">
         <div className="item-name">{item.nombre}</div>
 
@@ -19,7 +20,7 @@ export default function Item({ item }) {
         
 
       </div>
-
+      </Link>
     </>
   );
 }

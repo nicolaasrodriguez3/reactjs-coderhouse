@@ -34,7 +34,12 @@ export default function ItemDetail ({producto}){
                 { (mostrarItemCount)?
                     <ItemCount producto={producto} OnAdd={OnAdd}></ItemCount> 
                     :
-                    <> Su pedido se encuentra en el el <Link to={'/cart'}>carrito</Link> </>
+                    <div>
+                        <p>Su pedido se encuentra en el Carrito</p>
+                        
+                       <Link to={'/cart'}><button>Terminar Compra</button></Link>
+                       <Link to={'/'}><button>Seguir Comprando</button></Link>
+                    </div> 
                 }
                 
 
