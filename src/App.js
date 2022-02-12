@@ -8,6 +8,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Categories from "./componentes/Categories";
 import CartContext from "./componentes/CartContext";
 import Cart from "./componentes/Cart";
+import TestFirebase from "./componentes/TestFirebase";
+import TestFirebase2 from "./componentes/TestFirebase2";
 
 function App() {
   const arrayDeLinks = ["Home", "Categories", "On Sale"];
@@ -20,6 +22,7 @@ function App() {
         
         <Route exact path="/">
           <ItemListContainer saludo={"1970 STORE"}></ItemListContainer>
+         
         </Route>
 
         <Route  path="/item/:itemId">
@@ -27,7 +30,7 @@ function App() {
         </Route>
 
         <Route path="/categories/:categoryId">
-          <Categories/>
+        <ItemListContainer/>
         </Route>
 
         

@@ -1,83 +1,91 @@
 import react, { useEffect, useState } from "react";
 import Item from "./Item";
+import Loader from "./Loader";
+import { BrowserRouter, Switch, Route, useParams, Link} from "react-router-dom";
+import { getFirestore} from "../firebase/firebase";
 
 export default function ItemList() {
+
+  const { categoryId } = useParams();
+
   const [llegoLaPromesa, setLlegoLaPromesa] = useState(false);
 
   const [arrayDeItems, setArrayDeItems] = useState([]);
 
-  const productosEnStock = new Promise((resolve, reject) => {
-    const catalogo = [
-      {
-        nombre: "Remera Classic",
-        stock: 5,
-        precio: 3500,
-        id: "001",
-        categoria: "Remeras",
-        foto: "https://i.pinimg.com/564x/8d/44/b1/8d44b1e3d758a33af85ce77d39da4e53.jpg",
-      },
-
-      {
-        nombre: "Remera Vintage",
-        stock: 3,
-        precio: 3500,
-        id: "002",
-        categoria: "Remeras",
-        foto: "https://i.pinimg.com/564x/97/b0/ac/97b0ac5c5e356621c06deb6ee720b618.jpg",
-      },
-
-      {
-        nombre: "Remera wiscosin",
-        stock: 8,
-        precio: 3500,
-        id: "003",
-        categoria: "Remeras",
-        foto: "",
-      },
-
-      {
-        nombre: "Gorra Torrance",
-        stock: 9,
-        precio: 2800,
-        id: "004",
-        categoria: "Accesorios",
-        foto: "",
-      },
-
-      {
-        nombre: "Gorra Overlook",
-        stock: 16,
-        precio: 2800,
-        id: "005",
-        categoria: "Accesorios",
-        foto: "",
-      },
-
-      {
-        nombre: "Gorra Silver Creek",
-        stock: 11,
-        id: "006",
-        precio: 2800,
-        categoria: "Accesorios",
-        foto: "",
-      },
-    ];
-    setTimeout(() => {
-      resolve(catalogo);
-    }, 1000);
-  });
+  
 
   useEffect(() => {
-    productosEnStock
-      .then((res) => {
-        setLlegoLaPromesa(true);
-        setArrayDeItems(res);
+    console.log(categoryId)
+    const db = getFirestore();
+
+    if (categoryId == 'Remeras'){
+      const itemCollection = db.collection("items").where('categoria','==','Remeras');
+      
+      itemCollection.get()
+      .then((querySnapShot)=>{
+          
+        setArrayDeItems(querySnapShot.docs.map((doc)=>{
+              
+              return {id: doc.id, ...doc.data()}
+          
+          }));
+
+
+
+      })
+      .catch((err)=>{
+          alert(err);
+      });
+    }
+
+    if (categoryId == 'Accesorios'){
+      const itemCollection = db.collection("items").where('categoria','==','Accesorios');
+      
+      itemCollection.get()
+      .then((querySnapShot)=>{
+          
+        setArrayDeItems(querySnapShot.docs.map((doc)=>{
+              
+              return {id: doc.id, ...doc.data()}
+          
+          }));
+
+
+
+      })
+      .catch((err)=>{
+          alert(err);
+      });
+    }
+
+
+    if (!categoryId ){
+      const itemCollection = db.collection("items");
+      
+      itemCollection.get()
+      .then((querySnapShot)=>{
+          
+        setArrayDeItems(querySnapShot.docs.map((doc)=>{
+              
+              return {id: doc.id, ...doc.data()}
+          
+          }));
+
+
+
+      })
+      .catch((err)=>{
+          alert(err);
       })
 
-      .catch(() => {
-        alert("ERROR!");
-      });
-  }, []);
+      
+    }
+
+   
+    
+    setLlegoLaPromesa(true)
+
+  }, [categoryId]);
 
   return (
     <>
@@ -91,8 +99,10 @@ export default function ItemList() {
         </>
       ) : (
         <>
-          {" "}
-          <p className="pantalla-carga">Loading...</p>
+         <div className="itemList">
+         <div style={{width:"max-content", marginLeft:"50%"}}><Loader/></div>
+         </div>
+          
         </>
       )}
     </>
