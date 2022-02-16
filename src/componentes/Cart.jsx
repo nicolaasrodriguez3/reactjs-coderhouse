@@ -1,8 +1,8 @@
 import React, {useContext, useState} from "react";
-import CartContext from "./CartContext";
 import { contexto } from "./CartContext";
 import CartItem from "./CartItem";
 import { BrowserRouter, Switch, Route, useParams, Link} from "react-router-dom";
+import Form from "./Form";
 
 
 export default function Cart () {
@@ -39,6 +39,10 @@ export default function Cart () {
                <button onClick={()=>{clearAll()}}>Vaciar Carrito</button> 
                 <p>Total a pagar: ${precioTotal()} </p>
             </div>
+
+            <button>Finalizar Compra </button>
+
+            <Form></Form>
 
             </div>
 
