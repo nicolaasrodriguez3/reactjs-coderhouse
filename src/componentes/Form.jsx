@@ -33,6 +33,7 @@ export default function Form () {
         orders.add(miOrden)
         .then(({id})=>{
             setOrderId(id);
+            console.log("se enviaron los datos")
         })
         .catch((err)=>{
             console.log(err);
@@ -46,7 +47,7 @@ export default function Form () {
         <h2> Su pedido esta siendo procesado</h2>
         <p>Complete los siguientes datos para terminar su compra</p><br /><br />
         
-        <form action="">
+        <div>
 
          <input name="nombre" type={"text"} ref={nameRef} placeholder="Nombre y Apellido"></input> <br />
 
@@ -54,8 +55,8 @@ export default function Form () {
          <input name="email" type={"text"} ref={phoneNumberRef} placeholder="telefono"></input> <br />
          <input name="email" type={"text"} ref={addressRef} placeholder="direccion" ></input>
          
-        <button onSubmit={()=>{submit()}}>Enviar Datos </button>
-        </form>
+        <button onClick={()=>{submit()}}>Enviar Datos </button>
+        </div>
         </>
 
 
