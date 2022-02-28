@@ -1,6 +1,5 @@
 import React, {useContext, useEffect, useState}  from "react";
 import CartWidget from "./CartWidget";
-import LogoFinal from "../logo-final-3.png"
 import { BrowserRouter, Switch, Route, useParams, Link } from "react-router-dom";
 import CartContext from "./CartContext";
 import { contexto } from "./CartContext";

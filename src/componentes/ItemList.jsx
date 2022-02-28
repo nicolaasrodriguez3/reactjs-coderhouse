@@ -30,7 +30,7 @@ export default function ItemList() {
           
           }));
 
-
+          setLlegoLaPromesa(true)
 
       })
       .catch((err)=>{
@@ -49,7 +49,8 @@ export default function ItemList() {
               return {id: doc.id, ...doc.data()}
           
           }));
-
+          
+          setLlegoLaPromesa(true)
 
 
       })
@@ -71,6 +72,7 @@ export default function ItemList() {
           
           }));
 
+          setLlegoLaPromesa(true)
 
 
       })
@@ -83,7 +85,7 @@ export default function ItemList() {
 
    
     
-    setLlegoLaPromesa(true)
+    
 
   }, [categoryId]);
 
@@ -99,9 +101,9 @@ export default function ItemList() {
         </>
       ) : (
         <>
-         <div className="itemList">
-         <div style={{width:"max-content", marginLeft:"50%"}}><Loader/></div>
-         </div>
+         
+         <Loader></Loader>
+         
           
         </>
       )}

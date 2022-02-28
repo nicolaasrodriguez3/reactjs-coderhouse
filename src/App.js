@@ -2,7 +2,6 @@ import "./App.css";
 import "./SCSS/App.scss";
 import NavBar from "./componentes/NavBar";
 import ItemListContainer from "./componentes/ItemListContainer";
-import "./logo-final-3.png";
 import ItemDetailContainer from "./componentes/ItemDetailContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Categories from "./componentes/Categories";

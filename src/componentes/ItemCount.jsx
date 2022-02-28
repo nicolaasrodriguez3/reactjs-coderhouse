@@ -11,12 +11,10 @@ export default function ItemCount ({ producto, OnAdd }){
 
     const sumar = ()=>{
 
-        
-        
         (cantidadDeProductos < producto.stock) ?setCantidadDeProductos(cantidadDeProductos+1):
         alert("Lo sentimos no contamos con unidades disponibles");
 
-        console.log(cantidadDeProductos);
+    
     };
 
     const restar = ()=>{

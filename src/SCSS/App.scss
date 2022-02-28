@@ -40,7 +40,7 @@ body{
 .navBar{
   background-color: #F2E9DF;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 10px;
   height: 4.5rem;
@@ -75,6 +75,7 @@ body{
   margin-left: 10px;
   margin-right: 10px;
   display: inline-block;
+  padding: 5px;
 }
 
 

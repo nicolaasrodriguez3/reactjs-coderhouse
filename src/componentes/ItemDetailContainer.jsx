@@ -19,12 +19,13 @@ export default function ItemDetailContainer() {
     miItem.get()
     .then((doc)=>{
       setProducto({id: doc.id, ...doc.data() });
+      setLlegoLaPromesa(true)
     })
     .catch((err)=>{
         alert(err);
     });
 
-    setLlegoLaPromesa(true)
+    
   
 
   }, [itemId]);

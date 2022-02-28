@@ -8,18 +8,20 @@ export default function Item({ item }) {
   return (
     <>
     <Link className="linkToDetails" to={`/item/${item.id}`}>
-      <div className="item-card">
-        <div className="item-name">{item.nombre}</div>
-
-        <div className="item-imagen"></div>
-
-        <Link to={`/item/${item.id}`}><button>Ver Detalle del producto</button></Link>
-
-        <div>Unidades Disponibles: {item.stock}</div>
-
-        
-
+      <div className="card">
+        <div className="imgBox">
+          <img src={item.foto} alt="imagen-producto" />
+          <div className="overlay">
+            <Link className="buyButton" to={`/item/${item.id}`}>Comprar</Link>
+          </div>
+        </div>
+        <div className="contentBox">
+          <h3>{item.nombre}</h3> 
+          <div className="price">${item.precio}</div>
+    
+        </div>
       </div>
+
       </Link>
     </>
   );
