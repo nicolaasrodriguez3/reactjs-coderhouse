@@ -2,16 +2,29 @@ import React, {useEffect, useState, useRef, useContext} from "react";
 import { getFirestore} from "../firebase/firebase";
 import { contexto } from "./CartContext";
 import  {getFirebase} from "../firebase/firebase";
+import { faEnvelopeOpenText } from "@fortawesome/free-solid-svg-icons";
 
-export default function Form () {
-    const [oderId, setOrderId] = useState("");
+export default function Form ({total}) {
+    const [orderId, setOrderId] = useState("");
     const nameRef = useRef() ;
     const emailRef = useRef() ;
     const addressRef = useRef() ;
     const phoneNumberRef = useRef() ;
-    const {cart} = useContext(contexto);
+    const {cart, setCart} = useContext(contexto);
+   
+
+    const [datosEnviados, setDatosEnviados] = useState();
+    useEffect(()=>{
+        setDatosEnviados(false)
+    },[]);
 
     const submit = ()=>{
+
+        if (nameRef.current.value == "" || emailRef.current.value == "" || addressRef.current.value == ""){
+
+            alert("Debes completar todos los campos")
+        }else{
+
 
         
         const db = getFirestore();
@@ -24,8 +37,8 @@ export default function Form () {
                 direccion: addressRef.current.value,
                 telefono: phoneNumberRef.current.value,
             },
-            items: cart ,
-            total:"" ,
+            items:  {cart},
+            total: {total},
            
 
         }
@@ -33,34 +46,97 @@ export default function Form () {
         orders.add(miOrden)
         .then(({id})=>{
             setOrderId(id);
-            console.log("se enviaron los datos")
+            setDatosEnviados(true)
         })
         .catch((err)=>{
             console.log(err);
-        })
+        });
+
+        setCart([]);
+       
+        
+        }
+        
 
     }
  
     return (
+      <>
+        {datosEnviados ? (
+          <>
+            <div className="mainscreen">
 
-        <>
-        <h2> Su pedido esta siendo procesado</h2>
-        <p>Complete los siguientes datos para terminar su compra</p><br /><br />
-        
-        <div>
+            <h2> Tu compra ha sido procesada con exito ! </h2>
+            <p>Tu numero de orden es : {orderId} </p>
 
-         <input name="nombre" type={"text"} ref={nameRef} placeholder="Nombre y Apellido"></input> <br />
+            </div>
+          
+          </>
+        ) : (
+          <>
+            <div className="mainscreen">
+              <h2> Su pedido esta siendo procesado...</h2>
+              <p>Complete los siguientes datos para terminar su compra</p>
+              <br />
+              <br />
 
-         <input name="email" type={"email"} ref={emailRef} placeholder="Correo Electronico"></input> <br />
-         <input name="email" type={"text"} ref={phoneNumberRef} placeholder="telefono"></input> <br />
-         <input name="email" type={"text"} ref={addressRef} placeholder="direccion" ></input>
-         
-        <button onClick={()=>{submit()}}>Enviar Datos </button>
-        </div>
-        </>
+              <div className="rightside">
+                <h1>1970 Store - Check Out</h1>
+                <form action="">
+                  <p>Nombre Completo</p>
+                  <input
+                    name="nombre"
+                    className="inputbox"
+                    type={"text"}
+                    ref={nameRef}
+                    placeholder="Nombre y Apellido"
+                    required
+                  ></input>
+                  <p>Numero de Telefono </p>
+                  <input
+                    name="email"
+                    type={"text"}
+                    className="inputbox"
+                    ref={phoneNumberRef}
+                    placeholder="telefono"
+                    required
+                  ></input>
 
+                  <p>Correo Electronico</p>
+                  <input
+                    name="email"
+                    type={"email"}
+                    className="inputbox"
+                    ref={emailRef}
+                    placeholder="Correo Electronico"
+                    required
+                  ></input>
 
-    )
+                  <p>Direccion</p>
+                  <input
+                    name="email"
+                    type={"text"}
+                    className="inputbox"
+                    ref={addressRef}
+                    placeholder="Direccion"
+                    required
+                  ></input>
+                </form>
+
+                <button
+                  onClick={() => {
+                    submit();
+                  }}
+                  class="button"
+                >
+                  Confirmar compra
+                </button>
+              </div>
+            </div>
+          </>
+        )}
+      </>
+    );
 
 
 

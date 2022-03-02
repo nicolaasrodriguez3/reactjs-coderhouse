@@ -1,17 +1,15 @@
 .countContainer{
 
     width: 100%;
-    min-height: 6rem;
+    min-height: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
     margin-top: 10px;
     border-radius: 5px;
-    outline: 1px solid rgb(247, 245, 245);
     box-sizing: border-box;
-    box-shadow: 5px 20px 20px gray;
+   
 
     .itemCounter{
         width: 50%;
@@ -24,14 +22,53 @@
        
 
         button{
-            margin-left: 10px;
-            margin-right: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            height: 35px;
+            font-size: 20px;
+            width: 35px;
+            position: relative;
+             box-shadow:
+             -7px -7px 20px 0px #fff9,
+             -4px -4px 5px 0px #fff9,
+             7px 7px 20px 0px #0002,
+             4px 4px 5px 0px #0001,
+             inset 0px 0px 0px 0px #fff9,
+             inset 0px 0px 0px 0px #0001,
+             inset 0px 0px 0px 0px #fff9,        inset 0px 0px 0px 0px #0001;
+           transition:box-shadow 0.6s cubic-bezier(.79,.21,.06,.81);
+             border-radius: 4px;
+
+             cursor: pointer;
+             
+            
+        }
+
+        button:hover{
+            background: radial-gradient(circle,  #0ff 0%, #e0e5ec 60%);
+              color: rgba(102,102,102,.5); 
+              animation: colorchange 3s linear infinite;
+        }
+
+        .substractItem{
+            background-color: rgb(103, 103, 197);
+
+        }
+
+        .addItem{
+            background-color: rgb(103, 103, 197);
             
         }
 
         div{
             width: max-content;
             height: max-content;
+        }
+
+        .itemQuantity{
+            font-size: 1.2rem;
         }
     }
 
@@ -40,13 +77,34 @@
         margin-bottom: 10px;
         width: 80%;
         button{
-           padding: 10px;
-           background-color: black;
+            background-color: #4CAF50; /* Green */
+            border: none;
             color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px;
             cursor: pointer;
-            width: 100%;
+            transition-duration: 0.2s;
+            width:100%;
+            
+            .cart-btn{
+                color: white !important;
+            }
+           
         }
 
+        button:hover{
+
+            background-color: #f1f5f1;
+            color: #4CAF50;
+            border: solid 1px  #4CAF50;
+
+            
+        }
+
+      
         
 
     }

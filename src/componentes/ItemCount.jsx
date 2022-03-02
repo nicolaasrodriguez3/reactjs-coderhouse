@@ -3,6 +3,9 @@ import React , {useState} from "react";
 import ItemList from "./ItemList";
 import ItemDetailContainer from "./ItemDetailContainer";
 import ItemDetail from "./ItemDetail";
+import CartWidget from "./CartWidget";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function ItemCount ({ producto, OnAdd }){
@@ -27,15 +30,15 @@ export default function ItemCount ({ producto, OnAdd }){
         <>
         <div className="countContainer">
             <div className="itemCounter">
-                <button onClick={()=> restar()} className="sustractItem"> - </button>
-                <div>{cantidadDeProductos}</div>
-                <button onClick={()=> sumar()} className="addItem"> + </button>
+                <button onClick={()=> restar()} className="substractItem"> - </button>
+                <div className="itemQuantity">{cantidadDeProductos}</div>
+                <button onClick={()=> sumar()} className="addItem" > + </button>
             </div>
 
             <div className="addToCart" >
                 <button onClick={()=>OnAdd(cantidadDeProductos)}>
-                    Agregar al carrito
-                </button>
+                    Agregar al carrito <span> <FontAwesomeIcon icon={faShoppingCart}/> </span>
+                </button> 
             </div>
         </div>
 

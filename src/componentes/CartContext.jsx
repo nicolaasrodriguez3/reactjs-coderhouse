@@ -37,7 +37,7 @@ export default function CartContext ({ children }) {
 
     return (
         <>
-           <contexto.Provider value={{cart, addItem, removeItem,  clearAll }}>
+           <contexto.Provider value={{cart, addItem, removeItem,  clearAll,setCart }}>
                 {children}
             </contexto.Provider>
         </>

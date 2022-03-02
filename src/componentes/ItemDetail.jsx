@@ -17,9 +17,13 @@ export default function ItemDetail ({producto}){
 
     const OnAdd= (cantidad)=>{
         
+       if (cantidad > 0){
         addItem(producto, cantidad);
-        alert(`Se añadieron ${cantidad} de ${producto.nombre} al carrito`);
         setMostrarItemCount(false);
+
+       }else{
+           alert("debe seleccionar al menos 1 producto")
+       }
     }
 
     return(
@@ -33,19 +37,21 @@ export default function ItemDetail ({producto}){
             <div className="product-data">
                 
                 <div className="product-name">{producto.nombre}</div>
+                <div className="product-stock">unidades disponibles: {producto.stock}</div>
                 <div className="product-price"> $ {producto.precio}</div>
                 <div><p>{producto.descripcion}</p></div>
-                <div className="product-stock">unidades disponibles: {producto.stock}</div>
+                
                 
                 
                 { (mostrarItemCount)?
                     <ItemCount producto={producto} OnAdd={OnAdd}></ItemCount> 
                     :
-                    <div>
-                        <p>Su pedido se encuentra en el Carrito</p>
-                        
-                       <Link to={'/cart'}><button>Terminar Compra</button></Link>
-                       <Link to={'/'}><button>Seguir Comprando</button></Link>
+                    <div className="compraFinalizada">
+                        <p>Su producto se encuentra en el carrito ! </p>
+                        <div className="btn-container">
+                       <Link to={'/cart'}><button className="terminarCompraBtn">Ver Carrito</button></Link>
+                       <Link to={'/'}><button className="seguirComprandoBtn" >Seguir Comprando</button></Link>
+                       </div>
                     </div> 
                 }
                 

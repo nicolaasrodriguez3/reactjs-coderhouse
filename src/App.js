@@ -9,6 +9,7 @@ import CartContext from "./componentes/CartContext";
 import Cart from "./componentes/Cart";
 import TestFirebase from "./componentes/TestFirebase";
 import TestFirebase2 from "./componentes/TestFirebase2";
+import Footer from "./componentes/Footer";
 
 function App() {
   const arrayDeLinks = ["Home", "Categories", "On Sale"];
@@ -20,7 +21,7 @@ function App() {
       <Switch>
         
         <Route exact path="/">
-          <ItemListContainer saludo={"1970 STORE"}></ItemListContainer>
+          <ItemListContainer saludo={"SOMOS 1970 STORE !"}></ItemListContainer>
          
         </Route>
 
@@ -39,6 +40,7 @@ function App() {
 
         
       </Switch>
+      <Footer/>
       </CartContext>
     </BrowserRouter>
   );

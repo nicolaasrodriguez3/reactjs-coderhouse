@@ -15,8 +15,9 @@ export default function ItemList() {
   
 
   useEffect(() => {
-    console.log(categoryId)
     const db = getFirestore();
+
+   
 
     if (categoryId == 'Remeras'){
       const itemCollection = db.collection("items").where('categoria','==','Remeras');

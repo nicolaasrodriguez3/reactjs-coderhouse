@@ -4,6 +4,8 @@
 @import "_itemDetail.scss";
 @import "_cart.scss";
 @import "_loader.scss";
+@import "_form.scss";
+@import "_footer.scss";
 
 html{
     font-size: 16px;
@@ -11,13 +13,13 @@ html{
 
 
 body{
-  background-color: $background;
+  background-color: #F2D8B3;
 }
 
 .greeting{
   margin:auto;
   font-size: 4rem;
-  color: $color1;
+  color: $warning;
   width: 100%;
   text-align: center;
   margin-bottom: 3rem;
@@ -25,12 +27,13 @@ body{
   font-family: 'Monoton', cursive;
   letter-spacing: 1px;
   font-weight: lighter;
+  background-color: #F2D8B3;
 }
+
 
 .itemListContainer{
   width: 100%;
   height:  100%;
-  background-color: $background;
   margin: auto;
   border: none;
   margin-bottom: 20px;
